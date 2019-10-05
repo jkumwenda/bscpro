@@ -1,0 +1,2 @@
+[2018-12-21 22:12:53.162] [renderer1] [info] no standard startup: not the explorer viewlet
+[2018-12-21 22:13:01.789] [renderer1] [warning] UNRESPONSIVE extension host, 'vscodevim.vim' took 96% of 2722.797ms, saved PROFILE here: '/tmp/exthost-0f1160.cpuprofile' [{"id":"gc","total":68206,"percentage":3},{"id":"program","total":27791,"percentage":1},{"id":"self","total":1184,"percentage":0},{"id":"vscodevim.vim","total":2621873,"percentage":96}]
