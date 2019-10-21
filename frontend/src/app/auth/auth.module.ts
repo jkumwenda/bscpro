@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
 
+import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
-const authRoutes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-];
 
 @NgModule({
   declarations: [
@@ -16,11 +12,12 @@ const authRoutes: Routes = [
     RegisterComponent,
   ],
   imports: [
+    AuthRoutingModule,
     CommonModule,
-    RouterModule.forChild(authRoutes),
+    FormsModule,
   ],
   exports: [
-
+    AuthRoutingModule,
   ]
 })
 export class AuthModule { }

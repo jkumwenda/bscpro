@@ -3,34 +3,29 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
 
+import { HttpClientModule } from '@angular/common/http';    // add this
+import { FormsModule } from '@angular/forms';    // add this
+import { AuthService } from './shared/services/auth.service';    // add this
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoggedModule } from './logged/logged.module';
 import { AuthModule } from './auth/auth.module';
-import { LayoutModule } from './layout/layout.module';
-
-import { LoggedComponent } from './logged/logged.component';
-import { LoginComponent } from './auth/login/login.component';
-
-const appRoutes: Routes = [
-  {path: '', component: LoginComponent},
-];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoggedComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     DataTablesModule,
+    FormsModule,
+    HttpClientModule,
     AuthModule,
-    RouterModule.forRoot(appRoutes),
-    LayoutModule,
-    LoggedModule
+    LoggedModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

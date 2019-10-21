@@ -1,31 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import { ManageModule } from './manage/manage.module';
 
+import { LoggedRoutingModule } from './logged-routing.module';
 import { LoggedComponent } from './logged.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManageComponent } from './manage/manage.component';
+import { LayoutModule } from '../layout/layout.module';
 
-const loggedRoutes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'manage', component: ManageComponent },
-];
+import { AuthGuard } from '../shared/services/auth-guard.service';
+
 
 @NgModule({
   declarations: [
+    LoggedComponent,
     ManageComponent,
     DashboardComponent,
   ],
   imports: [
+    LoggedRoutingModule,
     BrowserModule,
     ManageModule,
-    RouterModule.forChild(loggedRoutes),
+    LayoutModule,
   ],
   exports: [
-
+    LoggedRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [LoggedComponent]
 })
 export class LoggedModule { }

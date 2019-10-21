@@ -1,1 +1,53 @@
-<p>register works!</p>
+<div class="container-fluid login-container d-flex h-100 flex-row">
+    <div class="p-2 flex-column flex-even-form d-flex  justify-content-center signup-img">
+        <div>
+            <h1 class="sign-font">Effiecient appraisals starts here </h1>
+        </div>
+        <div>
+            <h3>Join today and enjoy the most efficient and effective way of appraisals</h3>
+        </div>
+    </div>
+    <div class="p-2 flex-column flex-even-form d-flex align-items-center justify-content-center">
+        <div class="p-2"><img src="./assets/vendor/images/bg.png" height="100px"></div>
+        <h4 class="p-2"><b>Sign Up</b></h4>
+        <p class="p-2">Already have an account? <a [routerLink]="['/']">Sign In</a></p>
+        <div class="p-2">
+
+            <form class="login-form" (ngSubmit)="onRegister(registerForm)" #registerForm="ngForm">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <!-- <label for="inputEmail4">Email</label> -->
+                        <input type="input" class="form-control" id="inputEmail4" placeholder="Firstname" ngModel>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <!-- <label for="inputPassword4">Password</label> -->
+                        <input type="input" class="form-control" id="inputPassword4" placeholder="Lastname" ngModel>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <!-- <label for="inputEmail4">Email</label> -->
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email" ngModel>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <!-- <label for="inputEmail4">Email</label> -->
+                        <input type="input" class="form-control" id="inputEmail4" placeholder="Username" ngModel>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <!-- <label for="inputPassword4">Password</label> -->
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password" ngModel>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="inputAddress">Address</label> -->
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Registration code">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="p-2"> By joining, you agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></div>

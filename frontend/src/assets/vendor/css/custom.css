@@ -99,7 +99,7 @@ top-shadow {
 
 .navbar .navbar-nav .nav-link:not(.disabled):hover,
 .navbar .navbar-nav .nav-link:not(.disabled):focus {
-    color: #5f6060;
+    color: #264E84;
 }
 
 .navbar .navbar-nav .nav-item.active .nav-link,
@@ -108,7 +108,7 @@ top-shadow {
 .navbar .navbar-nav .nav-item.show .nav-link,
 .navbar .navbar-nav .nav-item.show .nav-link:hover,
 .navbar .navbar-nav .nav-item.show .nav-link:focus {
-    color: #5f6060;
+    color: #264E84;
     background-color: #ffffff;
 }
 
@@ -346,6 +346,10 @@ a .delete {
     text-decoration: none;
     background-color: #3165ab;
     padding: 10px;
+}
+
+.sidebar-active {
+    background-color: #3165ab !important;
 }
 
 .flex-even {
