@@ -1,8 +1,12 @@
-<div class="row d-flex h-100">
-    <div class=" col col-lg-3 col-md-3 col-sm-3 sidebar-wrap ">
-        <app-sidebar></app-sidebar>
+<div class="container-fluid d-flex h-100 flex-column">
+    <app-header></app-header>
+    <div class="row content d-flex">
+        <div class=" col col-lg-3 col-md-3 col-sm-3 sidebar-wrap ">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col col-lg-9 col-md-9 col-sm-9 ">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-    <div class="col col-lg-9 col-md-9 col-sm-9 ">
-        <router-outlet></router-outlet>
-    </div>
+    <app-footer></app-footer>
 </div>

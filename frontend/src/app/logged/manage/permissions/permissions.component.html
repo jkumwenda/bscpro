@@ -1,0 +1,45 @@
+<h4 class="module_title ">
+    {{moduleTitle}}
+</h4>
+<div class="card ">
+    <div class="card-header">
+        <span class="float-left">
+        <i class="mdi mdi-account-multiple-outline"></i> {{moduleSubTitle}}
+      </span>
+        <a [routerLink]="['/manage/permissions/add-permission/']" class="btn btn-sm btn-primary float-right" title="Add item">
+            <i class="mdi mdi-pencil-plus-outline"></i> Add
+        </a>
+    </div>
+    <div class="card-body ">
+        <div class="alert alert-primary" permission="alert">
+            This is a primary alert—check it out!
+        </div>
+        <table datatable class="table table-striped table-bordered row-border hover">
+            <thead>
+                <tr>
+                    <th>Permission</th>
+                    <th>Description</th>
+                    <th class="fit">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let permission of permissions; let data_index=index">
+                    <td>{{permission.permission}}</td>
+                    <td>{{permission.permission_description}}</td>
+                    <td class="fit">
+                        <button class="btn btn-primary btn-xs" (click)=viewPermission(permission.pk_permissionid) title="View item details"><i class="mdi mdi-eye-outline view"></i></button>
+                        <button class="btn btn-success btn-xs" (click)=editPermission(permission.pk_permissionid) title="Edit item"><i class="mdi mdi-file-edit-outline edit"></i></button>
+                        <button class="btn btn-danger btn-xs" (click)=deletePermission(permission.pk_permissionid) title="Delete item"><i class="mdi mdi-delete-outline delete"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Permission</th>
+                    <th>Description</th>
+                    <th class="fit">Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

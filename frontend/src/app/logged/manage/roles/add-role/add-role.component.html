@@ -1,1 +1,27 @@
-<p>add-role works!</p>
+<h4 class="module_title ">
+    {{moduleTitle}}
+</h4>
+<div class="card">
+    <div class="card-header">
+        <span class="mr-auto"><i class="mdi mdi-file-document-box-plus-outline"></i> {{moduleSubTitle}} </span>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="roleForm" (ngSubmit)="addRole()">
+
+            <div class="form-group">
+                <label for="inputTitle">Role</label>
+                <input type="text" class="form-control" formControlName='role' required placeholder="Role">
+            </div>
+
+            <div class="form-group">
+                <label for="inputTitle">Description</label>
+                <textarea type="text" id="form7" class="md-textarea form-control" formControlName='roleDescription' placeholder="Description" mdbInput></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" [disabled]="!roleForm.valid"><i class="mdi mdi-content-save-outline"></i>Save</button>
+                <button type="submit" class="btn btn-outline-secondary" [routerLink]="'/manage/roles'"><i class="mdi mdi-cancel"></i>Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

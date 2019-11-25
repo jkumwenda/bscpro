@@ -298,6 +298,7 @@ a span.code {
 
 .btn {
     border-radius: 2px;
+    margin: 1px;
 }
 
 a .view {
@@ -390,7 +391,7 @@ a.flex-even:hover {
 .login-form .form-control,
 .login-form .btn,
 .login-form .form-check-input {
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .form-check-input {
@@ -425,8 +426,12 @@ a:hover {
 .sign-font {
     font-family: comme;
     font-size: 50px;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black; */
+}
+
+.login-container {
+    padding: 0px;
 }
 
 .module_title {
@@ -458,4 +463,24 @@ a:hover {
 
 .box .row.footer {
     flex: 0 1 40px;
+}
+
+.btn-group-xs>.btn,
+.btn-xs {
+    padding: .22rem .4rem;
+    font-size: .872rem;
+    line-height: .8;
+    border-radius: .2rem;
+}
+
+.table td.fit,
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 2px;
+    font-size: smaller;
 }

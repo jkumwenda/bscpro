@@ -1,0 +1,16 @@
+<h4 class="module_title ">
+    {{moduleTitle}}
+</h4>
+<div class="card ">
+    <div class="card-header">
+        <span class="float-left">
+          <i class="mdi mdi-account-multiple-outline"></i> {{moduleSubTitle}}
+        </span>
+        <a [routerLink]="['/manage/titles/add-title/']" class="btn btn-sm btn-primary float-right" title="Add item">
+            <i class="mdi mdi-pencil-plus-outline"></i> Add
+        </a>
+    </div>
+    <div class="card-body ">
+        {{title.title}}
+    </div>
+</div>

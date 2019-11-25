@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoggedComponent } from './logged.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManageComponent } from './manage/manage.component';
-
 import { AuthGuard } from '../shared/services/auth-guard.service';
 
 const loggedRoutes: Routes = [

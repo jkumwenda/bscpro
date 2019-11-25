@@ -1,8 +1,8 @@
 # Author name 		:	HashTagIO
-# Phone 			:	+8615922015417
+# Phone 			:	+265999371088
 # Email   			:	jkumwenda@gmail.com
-# Date Created		:	2018-10-02
-# Last modified		:	2018-10-02
+# Date Created		:	2019-10-02
+# Last modified		:	2019-10-02
 
 from rest_framework import serializers
 from rest_framework.relations import HyperlinkedIdentityField
@@ -34,16 +34,21 @@ class TitleSerializer(serializers.ModelSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+	title = TitleSerializer(read_only=True)
+	title_id = serializers.PrimaryKeyRelatedField(
+                        queryset=Title.objects.all(),
+                        write_only=True, source='title')					
 	class Meta:
 		model   =   Profile
-		fields = ('fk_titleid', 'fk_roleid', 'profile_photo', 'mobile')	
+		fields = '__all__'	
 		
+
 class UserSerializer(serializers.ModelSerializer ):
 	password = serializers.CharField(write_only=True)
 	userprofile = ProfileSerializer(required=False)
 	class Meta:
 		model 	= 	User
-		fields = ('first_name', 'last_name', 'email', 'username', 'password', 'userprofile')	
+		fields = ('id','first_name', 'last_name', 'email', 'username', 'password', 'userprofile')	
 
 	def create(self, validated_data, instance=None):
 		profile_data = validated_data.pop('userprofile')
@@ -85,6 +90,10 @@ class PositonSerializer(serializers.ModelSerializer):
 
 
 class EmployeePositonSerializer(serializers.ModelSerializer):
+	position = EmployeeSerializer(read_only=True)
+	position_id = serializers.PrimaryKeyRelatedField(
+                        queryset=Positon.objects.all(),
+                        write_only=True, source='position')		
 	class Meta:
 		model   =   EmployeePositon
 		fields  =   '__all__'         

@@ -1,0 +1,22 @@
+<h4 class="module_title ">
+    {{moduleTitle}}
+</h4>
+<div class="card">
+    <div class="card-header">
+        <span class="mr-auto"><i class="mdi mdi-file-document-box-plus-outline"></i> {{moduleSubTitle}} </span>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="titleForm" (ngSubmit)="addTitle()">
+
+            <div class="form-group">
+                <label for="inputTitle">Title</label>
+                <input type="text" class="form-control" formControlName='title' required placeholder="title">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" [disabled]="!titleForm.valid"><i class="mdi mdi-content-save-outline"></i>Save</button>
+                <button type="submit" class="btn btn-outline-secondary" [routerLink]="'/manage/titles'"><i class="mdi mdi-cancel"></i>Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

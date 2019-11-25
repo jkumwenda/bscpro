@@ -59,6 +59,7 @@ export class AuthService {
     this.token = null;
     this.token_expires = null;
     this.username = null;
+    localStorage.clear();
   }
 
   public isAuthenticated() {
@@ -68,6 +69,7 @@ export class AuthService {
   private updateData(token) {
     this.token = token;
     this.errors = [];
+    localStorage.setItem('token', this.token);
 
     // decode the token to read the username and expiration timestamp
     const token_parts = this.token.split(/\./);

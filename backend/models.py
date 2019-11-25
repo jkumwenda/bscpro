@@ -53,26 +53,24 @@ class Title(models.Model):
 class Profile(models.Model):
     pk_profileid = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    fk_roleid = models.ForeignKey('Role', models.DO_NOTHING, db_column='fk_roleid')
     fk_titleid = models.ForeignKey('Title', models.DO_NOTHING, db_column='fk_titleid')
     profile_photo = models.CharField(max_length=45, blank=True, null=True)  
     mobile = models.CharField(max_length=45, blank=True, null=True)  
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'profile'   
 
+class ProfileRole(models.Model):
+    pk_profile_roleid = models.AutoField(primary_key=True)
+    fk_profileid = models.ForeignKey('Profile', models.DO_NOTHING, db_column='fk_profileid')
+    fk_roleid = models.ForeignKey('Role', models.DO_NOTHING, db_column='fk_roleid')
 
-# @receiver(post_save, sender=User)
-# def create_user_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
+    class Meta:
+        managed = True
+        db_table = 'profile_role'        
 
 
-# @receiver(post_save, sender=User)
-# def save_user_profile(sender, instance, **kwargs):
-#     instance.tblprofile.save()   
-# 
 class ProfileOrganisation(models.Model):
     pk_profile_organisationid = models.AutoField(primary_key=True)
     fk_profileid = models.ForeignKey('Profile', models.DO_NOTHING, db_column='fk_profileid')

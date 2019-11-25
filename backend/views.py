@@ -8,14 +8,26 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from .models import *
 from .serializers import *
+from .viewhelper import *
 from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
 class UserViewSet(viewsets.ModelViewSet):
 	# permission_classes = (IsAuthenticated,) 
-	queryset    =   User.objects.all()
+	queryset	=   User.objects.all()
 	serializer_class    =   UserSerializer
+
+	def get_queryset(self):
+		queryset = super().get_queryset()
+		if self.request.query_params.get('user_id') is not None:
+			data = ViewHelper.getUserByID(
+				self, queryset,
+				self.request.query_params.get('user_id'))
+		else:
+			data = queryset		
+		return data
+
 
 class RoleViewSet(viewsets.ModelViewSet):
 	# permission_classes = (IsAuthenticated,) 
@@ -24,7 +36,7 @@ class RoleViewSet(viewsets.ModelViewSet):
 
 
 class PermissionViewSet(viewsets.ModelViewSet):
-	permission_classes = (IsAuthenticated,) 
+	# permission_classes = (IsAuthenticated,) 
 	queryset    =   Permission.objects.all()
 	serializer_class    =   PermissionSerializer 
 
